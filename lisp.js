@@ -106,7 +106,7 @@ function Env(params, args, outer)
     var global_env = new Env();
     var glob_init = 
     {
-        '+': function (a,b) { return x + y; },
+        '+': function (a, b) { return a + b; },
         '-': function (a, b) { return a - b; },
         '*': function (a,b) { return a * b ; },
         '/': function (a, b) { return a / b; },
@@ -135,8 +135,8 @@ function Env(params, args, outer)
         global_env.set(key,glob_init[key]);
     });
 
-eval(parse("(define twice (lambda (x) (* 2 x)))"));
-var ans = eval(parse("(twice 25)"));
+eval(parse("(define fib (lambda (n) (if (< n 2) 1 (+ (fib (- n 1)) (fib (- n 2))))))"));
+var ans = eval(parse("(fib 5)"));
 console.log(ans);
 process.exit()
    

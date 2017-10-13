@@ -1,0 +1,3 @@
+eval(parse("(define fib (lambda (n) (if (< n 2) 1 (+ (fib (- n 1)) (fib (- n 2))))))"));
+var ans = eval(parse("(fib 5)"));
+console.log(ans);
